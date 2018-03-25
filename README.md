@@ -1,11 +1,10 @@
 # Suck My Disk team
 
-Members
-Kapitány Tamás
-Papilion Dániel
+## Members
+- Kapitány Tamás
+- Papilion Dániel
 
-Requirements: Alap elvárások (30 pont):
-
+### Requirements: Alap elvárások (30 pont):
 Projekt mefelelően legyen struktúrálva
 - Feature-ök legyenek modulokra bontva
 - Tilos közvetlenül DOM-ot manipulálni!
@@ -21,7 +20,7 @@ Projekt mefelelően legyen struktúrálva
 - Git verziókezelő rendszer használata
   * Szívesen látok egy Open github repot is
   
-Elkészítendő funkciók (70 pont):
+### Elkészítendő funkciók (70 pont):
 - Legalább 3 (különböző) route
 - Legalább 3 saját module, legalább 1 lazy loaded module
 - Legalább 1 saját service
