@@ -1,0 +1,15 @@
+.fa-twitter {
+    color: lightskyblue;
+}
+
+.user-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+}
+
+.dropdown-toggle::after {
+    display:none
+}
