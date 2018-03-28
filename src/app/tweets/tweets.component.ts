@@ -6,10 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tweets.component.scss']
 })
 export class TweetsComponent implements OnInit {
+    constructor() {
+    }
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+    ngOnInit() {
+    }
 }

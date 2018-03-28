@@ -6,18 +6,21 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { TweetsModule } from './tweets/tweets.module';
 import { CoreModule } from './core/core.module';
+import { SignInComponent } from './auth/sign-in/sign-in.component';
+import {AuthModule} from './auth/auth.module';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     TweetsModule,
     CoreModule,
-    FormsModule
+    FormsModule,
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
