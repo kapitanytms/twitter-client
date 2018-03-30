@@ -1,32 +1,27 @@
-# Suck My Disk team
+# TwitterClient2
 
-## Members
-- Kapitány Tamás
-- Papilion Dániel
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.5.
 
-### Requirements: Alap elvárások (30 pont):
-Projekt mefelelően legyen struktúrálva
-- Feature-ök legyenek modulokra bontva
-- Tilos közvetlenül DOM-ot manipulálni!
-- A DOM manipuláció csak akkor megengedett, ha nem lehet angularral megoldani! Bővebben
-   * Tanácsok:
-     * Kerüld el, ha lehet!
-     * Használd körültekintően, ha szükséges!
-- Legalább 5.x.x Angular használata
-- Fordíthatóság JIT és AOT módban
-- Dokumentált forráskód
-  * Minimum JSDoc a kódban
-  * Kommentek ott ahol további magyarázat szükséges
-- Git verziókezelő rendszer használata
-  * Szívesen látok egy Open github repot is
-  
-### Elkészítendő funkciók (70 pont):
-- Legalább 3 (különböző) route
-- Legalább 3 saját module, legalább 1 lazy loaded module
-- Legalább 1 saját service
-- Legalább 1 saját direktíva (ami nem komponens)
-- Legalább 10 (értelmes) saját komponens
-- Legalább 1 (értelmes) saját form
-- Legalább 1 saját pipe
+## Development server
 
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
+## Code scaffolding
+
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
+## Build
+
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+
+## Running unit tests
+
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+## Running end-to-end tests
+
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).

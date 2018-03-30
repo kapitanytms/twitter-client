@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TweetService } from '../tweet.service';
+import {TweetService} from '../tweet.service';
 
 @Component({
   selector: 'app-tweet-edit',
@@ -7,17 +7,18 @@ import { TweetService } from '../tweet.service';
   styleUrls: ['./tweet-edit.component.scss']
 })
 export class TweetEditComponent implements OnInit {
-  tweetMessage = '';
-  constructor(private tweetService: TweetService) { }
 
-  ngOnInit() {
-  }
+    tweetMessage = '';
+    constructor(private tweetService: TweetService) { }
 
-  public sendTweet() {
-    if (this.tweetMessage !== '') {
-      this.tweetService.addTweet(this.tweetMessage);
-      this.tweetMessage = '';
+    ngOnInit() {
     }
-  }
+
+    public sendTweet() {
+        if (this.tweetMessage !== '') {
+            this.tweetService.addTweet(this.tweetMessage);
+            this.tweetMessage = '';
+        }
+    }
 
 }

@@ -1,22 +1,22 @@
-import { Tweet } from './tweet';
 import { Injectable } from '@angular/core';
+import {Tweet} from './tweet';
 
 @Injectable()
 export class TweetService {
 
-  tweets: Tweet[];
-  constructor() {
-    this.tweets = [
-      new Tweet('owner1', 'This is a test tweet.'),
-      new Tweet('owner2', 'This is a test tweet.'),
-    ];
-   }
+    tweets: Tweet[];
+    constructor() {
+        this.tweets = [
+            new Tweet('owner1', 'This is a test tweet.'),
+            new Tweet('owner2', 'This is a test tweet.'),
+        ];
+    }
 
-   public getTweets(): Tweet[] {
-     return this.tweets;
-   }
+    public getTweets(): Tweet[] {
+        return this.tweets;
+    }
 
-   public addTweet(tweet): void {
-     this.tweets.push(new Tweet('owner1', tweet));
-   }
+    public addTweet(tweet): void {
+        this.tweets.push(new Tweet('owner1', tweet));
+    }
 }
