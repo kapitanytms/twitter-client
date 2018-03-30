@@ -1,6 +1,6 @@
 {
 "version": 3,
-"mappings": "AAAA,QAAS;EACP,WAAW,EAAE,EAAE",
+"mappings": "AAAA,QAAS;EACP,WAAW,EAAE,EAAE;EACf,aAAK;IACH,gBAAgB,EAAE,wBAAuB",
 "sources": ["project.component.scss"],
 "names": [],
 "file": "project.component.css"

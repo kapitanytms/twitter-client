@@ -1,4 +1,6 @@
 .project {
   padding-top: 4%; }
+  .project .col {
+    background-color: rgba(164, 168, 173, 0.2); }
 
 /*# sourceMappingURL=project.component.css.map */

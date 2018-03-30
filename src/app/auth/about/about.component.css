@@ -2,5 +2,7 @@
   padding-top: 4%; }
   .about .card-img-top {
     max-height: 600px; }
+  .about .card {
+    margin-top: 20px; }
 
 /*# sourceMappingURL=about.component.css.map */

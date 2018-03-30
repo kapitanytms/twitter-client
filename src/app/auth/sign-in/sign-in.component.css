@@ -3,5 +3,7 @@
   .sign-in em {
     display: block;
     padding: 10px; }
+  .sign-in .col {
+    background-color: rgba(164, 168, 173, 0.2); }
 
 /*# sourceMappingURL=sign-in.component.css.map */
