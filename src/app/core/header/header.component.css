@@ -1,15 +1,14 @@
 .fa-twitter {
-  color: lightskyblue;
-}
+  color: lightskyblue; }
 
 .user-icon {
   width: 46px;
   height: 46px;
   border-radius: 50%;
   background-size: cover;
-  background-position: center;
-}
+  background-position: center; }
 
 .dropdown-toggle::after {
-  display:none
-}
+  display: none; }
+
+/*# sourceMappingURL=header.component.css.map */

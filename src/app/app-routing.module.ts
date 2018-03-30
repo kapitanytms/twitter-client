@@ -1,18 +1,18 @@
-import { TweetsComponent } from './tweets/tweets.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Routes, RouterModule } from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
 
 const appRoutes: Routes = [
-  { path: '', component: TweetsComponent }
+    {path: 'welcome', loadChildren: './auth/auth.module#AuthModule' },
+    {path: 'home', loadChildren: './tweets/tweet.module#TweetModule'}
 ];
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
   ],
-  exports: [RouterModule],
-  declarations: []
+  declarations: [],
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }

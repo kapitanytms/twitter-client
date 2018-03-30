@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('twitter-client App', () => {
+describe('twitter-client2 App', () => {
   let page: AppPage;
 
   beforeEach(() => {

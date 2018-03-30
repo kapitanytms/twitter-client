@@ -1,18 +1,25 @@
-import { TweetStartComponent } from './tweet-start/tweet-start.component';
-import { TweetsComponent } from './tweets.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Routes, RouterModule } from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
+import {TweetsComponent} from './tweets.component';
+import {TweetListComponent} from './tweet-list/tweet-list.component';
+import {TweetEditComponent} from './tweet-edit/tweet-edit.component';
 
-const tweetsRoutes: Routes = [
-  {path: '', component: TweetsComponent}
+const tweetRoutes: Routes = [
+    {path: '', component: TweetsComponent, children: [
+      {path: 'feed', component: TweetListComponent},
+      {path: 'edit', component: TweetEditComponent}
+    ]}
 ];
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild(tweetsRoutes)
+    RouterModule.forChild(tweetRoutes)
   ],
-  declarations: []
+  declarations: [],
+  exports: [
+      RouterModule
+  ]
 })
 export class TweetRoutingModule { }
