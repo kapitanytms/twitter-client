@@ -9,12 +9,12 @@ import {AboutComponent} from './about/about.component';
 
 const authRoutes: Routes = [
     { path: '', component: WelcomeComponent, children: [
-      { path: '', redirectTo: 'project', pathMatch: 'full' },
+      { path: '', redirectTo: 'sign_in', pathMatch: 'full' },
       { path: 'sign_in', component: SignInComponent },
       { path: 'sign_up', component: SignUpComponent },
       { path: 'project', component: ProjectComponent },
-      { path: 'about_us', component: AboutComponent }
-    ]}
+      { path: 'about_us', component: AboutComponent },
+        ]}
 ];
 @NgModule({
   imports: [

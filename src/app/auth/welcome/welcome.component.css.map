@@ -1,6 +1,6 @@
 {
 "version": 3,
-"mappings": "AAAA,UAAW;EACT,MAAM,EAAE,MAAM;;AAEhB,IAAK;EACH,gBAAgB,EAAE,UAAU;EAC5B,OAAO,EAAE,MAAM;EACf,MAAE;IACA,KAAK,EAAE,KAAK;IACZ,WAAW,EAAE,IAAI",
+"mappings": "AAAA,IAAK;EACH,gBAAgB,EAAE,UAAU;EAC5B,OAAO,EAAE,MAAM;EACf,MAAE;IACA,KAAK,EAAE,KAAK;IACZ,WAAW,EAAE,IAAI",
 "sources": ["welcome.component.scss"],
 "names": [],
 "file": "welcome.component.css"
