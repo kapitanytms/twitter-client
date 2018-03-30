@@ -3,7 +3,6 @@
 ## Members
 - Kapitány Tamás
 - Papilion Dániel
--
 ### Requirements: Alap elvárások (30 pont):
 Projekt mefelelően legyen struktúrálva
 - Feature-ök legyenek modulokra bontva
