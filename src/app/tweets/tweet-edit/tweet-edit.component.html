@@ -1,6 +1,11 @@
-<div class="input-group">
-  <div class="input-group-prepend">
-    <button class="btn btn-success" [disabled]="tweetMessage.length == 0" (click)="sendTweet()">Tweet</button>
+<div class="row no-gutters justify-content-center new-tweet">
+  <div class="col-md-6">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <button class="btn btn-success" [disabled]="tweetMessage.length == 0" (click)="sendTweet()">Tweet</button>
+      </div>
+      <textarea class="form-control" [(ngModel)]="tweetMessage" rows="2" maxlength="120"></textarea>
+    </div>
+
   </div>
-  <textarea class="form-control" [(ngModel)]="tweetMessage" rows="2" maxlength="120"></textarea>
 </div>

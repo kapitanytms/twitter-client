@@ -6,11 +6,13 @@ import {SignUpComponent} from './sign-up/sign-up.component';
 import {SignInComponent} from './sign-in/sign-in.component';
 import {ProjectComponent} from './project/project.component';
 import {AboutComponent} from './about/about.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    FormsModule
   ],
   declarations: [
     WelcomeComponent,
@@ -19,6 +21,6 @@ import {AboutComponent} from './about/about.component';
     ProjectComponent,
     AboutComponent
   ],
-    exports: [AuthRoutingModule]
+  exports: [AuthRoutingModule],
 })
 export class AuthModule { }
