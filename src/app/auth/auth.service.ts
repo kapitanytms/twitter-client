@@ -22,4 +22,8 @@ export class AuthService {
         this.userChanged.next(null);
         this.router.navigate(['/']);
     }
+
+    isAuthenticated() {
+        return this.user != null;
+    }
 }
