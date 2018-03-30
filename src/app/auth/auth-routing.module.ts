@@ -8,11 +8,12 @@ import {ProjectComponent} from './project/project.component';
 import {AboutComponent} from './about/about.component';
 
 const authRoutes: Routes = [
-    {path: '', component: WelcomeComponent, children: [
-      {path: 'sign_in', component: SignInComponent},
-      {path: 'sign_up', component: SignUpComponent},
-      {path: 'project', component: ProjectComponent},
-      {path: 'about_us', component: AboutComponent}
+    { path: '', component: WelcomeComponent, children: [
+      { path: '', redirectTo: 'project', pathMatch: 'full' },
+      { path: 'sign_in', component: SignInComponent },
+      { path: 'sign_up', component: SignUpComponent },
+      { path: 'project', component: ProjectComponent },
+      { path: 'about_us', component: AboutComponent }
     ]}
 ];
 @NgModule({
