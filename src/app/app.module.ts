@@ -8,6 +8,7 @@ import {AuthModule} from './auth/auth.module';
 import { HeaderComponent } from './core/header/header.component';
 import {AuthService} from './auth/auth.service';
 import {AuthGuardService} from './auth/auth-guard.service';
+import {ParticlesModule} from 'angular-particle';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import {AuthGuardService} from './auth/auth-guard.service';
     BrowserModule,
     AppRoutingModule,
     AuthModule,
+    ParticlesModule
   ],
   providers: [AuthService, AuthGuardService],
   bootstrap: [AppComponent]
