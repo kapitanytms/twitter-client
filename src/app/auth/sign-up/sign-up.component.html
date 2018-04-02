@@ -1,3 +1,58 @@
-<p>
-  sign-up works!
-</p>
+<div class="row registration no-gutters justify-content-center">
+  <div class="col card col-md-4 col-lg-4">
+    <div class="card-body">
+      <h5 class="card-title text-center">Registration</h5>
+      <form [formGroup]="registrationForm">
+        <div formGroupName="name" class="form-row">
+          <div class="col">
+            <div class="form-group">
+              <label for="firstname">Firstname</label>
+              <input type="text" id="firstname" class="form-control" formControlName="firstname" required>
+              <div *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)" class="alert alert-danger">
+                <div *ngIf="firstname.errors.required">Firstname is required.</div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <label for="lastname">Lastname</label>
+              <input type="text" id="lastname" class="form-control" formControlName="lastname" required>
+              <div *ngIf="lastname.invalid && (lastname.dirty || lastname.touched)" class="alert alert-danger">
+                <div *ngIf="lastname.errors.required">Lastname is required.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" class="form-control" id="username" formControlName="username" required>
+          <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert alert-danger">
+            <div *ngIf="username.errors.required">Username is required.</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="text" id="email" class="form-control" formControlName="email" required>
+          <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+            <div *ngIf="email.errors.required">Email is required.</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="password" formControlName="password" required>
+          <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+            <div *ngIf="password.errors.required">Password is required.</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="retype-password">Retype password</label>
+          <input type="password" class="form-control" id="retype-password" formControlName="retypedPassword" required>
+          <div *ngIf="retypedPassword.invalid && (retypedPassword.dirty || retypedPassword.touched)" class="alert alert-danger">
+            <div *ngIf="retypedPassword.errors.required">Please retype the password.</div>
+          </div>
+        </div>
+        <button [disabled]="!registrationForm.valid" type="submit" class="btn btn-primary btn-block" (click)="onSubmit()">Register</button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -35,11 +35,14 @@ export class AppComponent implements OnInit {
                 value: 200,
             },
             color: {
-                value: '#ffffff'
+                value: '#4286f4'
             },
             shape: {
-                type: 'triangle',
+                type: 'circle',
             },
+            size: {
+                value: 4
+            }
         },
         interactivity: {
           events: {

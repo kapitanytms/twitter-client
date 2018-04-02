@@ -1,6 +1,11 @@
 .nav {
   background-color: dodgerblue;
   padding: 20px 0;
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
   a {
     color: white;
     font-weight: bold;
