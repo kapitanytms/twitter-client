@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {passwordValidation} from '../password-validation';
+import {AuthService} from '../auth.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -10,7 +11,7 @@ import {passwordValidation} from '../password-validation';
 export class SignUpComponent implements OnInit {
 
   registrationForm: FormGroup;
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private authService: AuthService) {
     this.createForm();
   }
 
@@ -41,7 +42,9 @@ export class SignUpComponent implements OnInit {
 
 
 
-    onSubmit() {
-    console.log(this.registrationForm.value);
+  onSubmit() {
+      const email = this.registrationForm.get('email').value;
+      const password = this.registrationForm.get('passwords').get('password').value;
+      this.authService.signUpUser(email, password);
   }
 }

@@ -27,3 +27,21 @@ Projekt mefelelően legyen struktúrálva
 - Legalább 10 (értelmes) saját komponens
 - Legalább 1 (értelmes) saját form
 - Legalább 1 saját pipe
+
+
+####This project use Firebase for backend.
+#####Create your own project -> https://firebase.google.com/ ,
+#####then configure the app in environment:
+```
+export const environment = {
+  production: false,
+  firebase: {
+    apiKey: '<your-key>',
+    authDomain: '<your-project-authdomain>',
+    databaseURL: '<your-database-URL>',
+    projectId: '<your-project-id>',
+    storageBucket: '<your-storage-bucket>',
+    messagingSenderId: '<your-messaging-sender-id>'
+  }
+};
+```

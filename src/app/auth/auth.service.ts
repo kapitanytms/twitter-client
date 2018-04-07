@@ -2,28 +2,46 @@ import { Injectable } from '@angular/core';
 import {Router} from '@angular/router';
 import {User} from '../shared/user';
 import {Subject} from 'rxjs/Subject';
+import {AngularFireAuth} from 'angularfire2/auth';
 
 @Injectable()
 export class AuthService {
-  user: User;
+  token: string;
   userChanged = new  Subject<User>();
-  constructor(private router: Router) { }
+  constructor(private router: Router, private afAuth: AngularFireAuth) { }
 
-    signinUser(email: string, password: string) {
-        if (email === 'testuser@email.com' && password === 'testpass') {
-            this.user = {email: email, password: password, username: 'Test'};
-            this.userChanged.next(this.user);
-            this.router.navigate(['/home']);
-        }
+    signInUser(email: string, password: string) {
+        this.afAuth.auth.signInWithEmailAndPassword(email, password)
+            .then((res) => {
+                this.router.navigate(['/home']);
+                this.afAuth.auth.currentUser.getIdToken()
+                    .then((token: string) => this.token = token);
+            })
+            .catch(error => {console.log(error); });
+    }
+
+    signUpUser(email: string, password: string) {
+        this.afAuth.auth.createUserWithEmailAndPassword(email, password)
+            .catch(
+                error => console.log(error)
+            );
     }
 
     signOut() {
-        this.user = null;
-        this.userChanged.next(null);
+        this.afAuth.auth.signOut();
+        this.token = null;
         this.router.navigate(['/']);
     }
 
+    getToken() {
+        this.afAuth.auth.currentUser.getToken()
+            .then(
+                (token: string) => this.token = token
+            );
+        return this.token;
+    }
+
     isAuthenticated() {
-        return this.user != null;
+        return this.token != null;
     }
 }

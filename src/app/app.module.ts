@@ -10,6 +10,11 @@ import {AuthGuardService} from './auth/auth-guard.service';
 import {ParticlesModule} from 'angular-particle';
 import {TweetModule} from './tweets/tweet.module';
 import {CoreModule} from './core/core.module';
+import {AngularFireModule} from 'angularfire2';
+import {environment} from '../environments/environment';
+import {AngularFirestoreModule} from 'angularfire2/firestore';
+import {AngularFireAuthModule} from 'angularfire2/auth';
+import {AngularFireStorageModule} from 'angularfire2/storage';
 
 @NgModule({
   declarations: [
@@ -21,7 +26,11 @@ import {CoreModule} from './core/core.module';
     AuthModule,
     ParticlesModule,
     TweetModule,
-    CoreModule
+    CoreModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    AngularFireAuthModule,
+    AngularFireStorageModule
   ],
   providers: [AuthService, AuthGuardService],
   bootstrap: [AppComponent]

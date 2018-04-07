@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from './auth/auth.service';
-import {User} from './shared/user';
 
 @Component({
   selector: 'app-root',
@@ -8,17 +7,14 @@ import {User} from './shared/user';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  user: User;
-
     myStyle = {};
     myParams = {};
     width = 100;
     height = 100;
 
-  constructor(private authService: AuthService) {}
-
+  constructor(private _authService: AuthService) {}
+  get authService() { return this._authService; }
   ngOnInit() {
-    this.authService.userChanged.subscribe((user) => this.user = user);
     this.myStyle = {
         'position': 'absolute',
         'width': '100%',
