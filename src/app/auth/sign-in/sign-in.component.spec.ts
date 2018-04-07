@@ -2,6 +2,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SignInComponent } from './sign-in.component';
 import {RouterTestingModule} from '@angular/router/testing';
+import {AuthService} from '../auth.service';
+import {FormsModule} from '@angular/forms';
 
 describe('SignInComponent', () => {
   let component: SignInComponent;
@@ -10,7 +12,8 @@ describe('SignInComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ SignInComponent ],
-      imports: [RouterTestingModule]
+      imports: [RouterTestingModule, FormsModule],
+      providers: [AuthService]
     })
     .compileComponents();
   }));
