@@ -29,9 +29,11 @@ Projekt mefelelően legyen struktúrálva
 - Legalább 1 saját pipe
 
 
-####This project use Firebase for backend.
-#####Create your own project -> https://firebase.google.com/ ,
-#####then configure the app in environment:
+#### This project use Firebase for backend.
+
+##### Create your own project -> https://firebase.google.com/ ,
+
+##### then configure the app in environment:
 ```
 export const environment = {
   production: false,
