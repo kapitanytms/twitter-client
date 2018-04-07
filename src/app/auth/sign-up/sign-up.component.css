@@ -1,3 +1,7 @@
-
+.registration {
+  margin-top: 120px;
+  padding-top: 2%; }
+  .registration .col {
+    background-color: rgba(164, 168, 173, 0.2); }
 
 /*# sourceMappingURL=sign-up.component.css.map */

@@ -20,7 +20,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     SignUpComponent,
     SignInComponent,
     ProjectComponent,
-    AboutComponent
+    AboutComponent,
   ],
   exports: [AuthRoutingModule],
 })

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {passwordValidation} from '../password-validation';
 
 @Component({
   selector: 'app-sign-up',
@@ -19,21 +20,24 @@ export class SignUpComponent implements OnInit {
   createForm() {
       this.registrationForm = this.fb.group({
           name: this.fb.group({
-              firstname: ['', Validators.required],
-              lastname: ['', Validators.required]
+              firstname: new FormControl('', Validators.required),
+              lastname: new FormControl('', Validators.required)
           }),
-          username: ['', Validators.required],
-          email: ['', Validators.required],
-          password: ['', Validators.required],
-          retypedPassword: ['', Validators.required]
+          username: new FormControl('', Validators.required),
+          email: new FormControl('', [Validators.required, Validators.email]),
+          passwords: this.fb.group({
+              password: new FormControl('', Validators.required),
+              retypedPassword: new FormControl('', [Validators.required, passwordValidation])
+          })
       });
   }
+
   get firstname() { return this.registrationForm.get('name').get('firstname'); }
   get lastname() { return this.registrationForm.get('name').get('lastname'); }
   get username() { return this.registrationForm.get('username'); }
   get email() { return this.registrationForm.get('email'); }
-  get password() { return this.registrationForm.get('password'); }
-  get retypedPassword() { return this.registrationForm.get('retypedPassword'); }
+  get password() { return this.registrationForm.get('passwords').get('password'); }
+  get retypedPassword() { return this.registrationForm.get('passwords').get('retypedPassword'); }
 
 
 
