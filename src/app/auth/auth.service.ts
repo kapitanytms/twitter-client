@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
 import {Router} from '@angular/router';
-import {User} from '../shared/user';
-import {Subject} from 'rxjs/Subject';
 import {AngularFireAuth} from 'angularfire2/auth';
+import {AngularFirestore, AngularFirestoreCollection} from 'angularfire2/firestore';
+import {User} from './user';
 
 @Injectable()
 export class AuthService {
   token: string;
-  userChanged = new  Subject<User>();
-  constructor(private router: Router, private afAuth: AngularFireAuth) { }
+  private _userCollection: AngularFirestoreCollection<User>;
+  constructor(private router: Router, private afAuth: AngularFireAuth, private _afs: AngularFirestore) {
+    this._userCollection = this._afs.collection('users');
+  }
 
     signInUser(email: string, password: string) {
         this.afAuth.auth.signInWithEmailAndPassword(email, password)
@@ -20,8 +22,13 @@ export class AuthService {
             .catch(error => {console.log(error); });
     }
 
-    signUpUser(email: string, password: string) {
-        this.afAuth.auth.createUserWithEmailAndPassword(email, password)
+    signUpUser(user: User, password: string) {
+        this.afAuth.auth.createUserWithEmailAndPassword(user.email, password)
+            .then(res => {
+                user.uid = res.uid;
+                this._userCollection.doc(user.uid).set(user)
+                    .then(() => console.log('success'));
+            })
             .catch(
                 error => console.log(error)
             );

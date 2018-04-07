@@ -43,8 +43,14 @@ export class SignUpComponent implements OnInit {
 
 
   onSubmit() {
-      const email = this.registrationForm.get('email').value;
+      const user = {
+          firstname: this.firstname.value,
+          lastname: this.lastname.value,
+          username: this.username.value,
+          email: this.email.value,
+          uid: ''
+      };
       const password = this.registrationForm.get('passwords').get('password').value;
-      this.authService.signUpUser(email, password);
+      this.authService.signUpUser(user, password);
   }
 }
