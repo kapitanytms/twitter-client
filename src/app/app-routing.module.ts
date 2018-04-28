@@ -9,11 +9,11 @@ const appRoutes: Routes = [
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule.forRoot(appRoutes, {preloadingStrategy: PreloadAllModules}),
-  ],
-  declarations: [],
-  exports: [RouterModule]
+    imports: [
+        CommonModule,
+        RouterModule.forRoot(appRoutes, {preloadingStrategy: PreloadAllModules}),
+    ],
+    declarations: [],
+    exports: [RouterModule]
 })
 export class AppRoutingModule { }
