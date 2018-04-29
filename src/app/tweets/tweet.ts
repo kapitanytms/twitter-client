@@ -1,15 +1,22 @@
-export class Tweet {
-    static tweetCounter = 0;
+export interface TweetItem {
+    id?: string;
+    owner_id: string;
+    text: string;
+    date: number;
+    likes: string[];
+}
 
-    public id: string;
+export class Tweet implements TweetItem {
+    public id?: string;
     public owner_id: string;
     public text: string;
     public date: number;
-    constructor(owner_id, text, date) {
+    public likes: string[];
+    constructor(id, owner_id, text, date, likes) {
+        this.id = id;
         this.owner_id = owner_id;
         this.text = text;
-        Tweet.tweetCounter++;
-        this.id = 'tweet' + Tweet.tweetCounter;
         this.date = date;
+        this.likes = likes;
     }
 }

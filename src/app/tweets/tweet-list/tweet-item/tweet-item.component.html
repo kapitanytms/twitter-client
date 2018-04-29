@@ -1,11 +1,22 @@
 <div class="card">
   <div class="card-header">
     {{tweet.owner_id}}
+    <a (click)="onLike()">
+      <i *ngIf="!liked" class="fa fa-heart-o fa-lg tweet-like"></i>
+      <i *ngIf="liked" class="fa fa-heart fa-lg tweet-like"></i>
+    </a>
+    <button (click)="onDelete()" class="btn btn-danger pull-right" 
+    *ngIf="tweet.owner_id === tweetService.currentUser.uid"> 
+      Delete
+    </button>
   </div>
   <div class="card-body">
     <blockquote class="blockquote mb-0">
       <p>{{tweet.text}}</p>
-      <footer class="blockquote-footer">Tweeted on <cite title="Source Title">{{tweet.date | date:'full'}}</cite></footer>
+      <footer 
+        class="blockquote-footer">
+        Tweeted on <cite title="Source Title">{{tweet.date | date:'full'}}</cite>
+      </footer>
     </blockquote>
   </div>
 </div>

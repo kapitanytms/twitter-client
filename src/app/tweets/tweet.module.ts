@@ -7,6 +7,7 @@ import {TweetItemComponent} from './tweet-list/tweet-item/tweet-item.component';
 import {TweetsComponent} from './tweets.component';
 import {TweetService} from './tweet.service';
 import {FormsModule} from '@angular/forms';
+import { TweetFilterPipe } from './tweet-list/tweet-filter.pipe';
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import {FormsModule} from '@angular/forms';
       TweetEditComponent,
       TweetListComponent,
       TweetItemComponent,
-      TweetsComponent
+      TweetsComponent,
+      TweetFilterPipe
   ],
   exports: [TweetRoutingModule],
   providers: [TweetService]
