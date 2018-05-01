@@ -15,10 +15,13 @@ import {environment} from '../environments/environment';
 import {AngularFirestoreModule} from 'angularfire2/firestore';
 import {AngularFireAuthModule} from 'angularfire2/auth';
 import {AngularFireStorageModule} from 'angularfire2/storage';
+import { UserComponent } from './user/user.component';
+import {UserService} from './user/user.service';
 
 @NgModule({
   declarations: [
     AppComponent,
+    UserComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,7 @@ import {AngularFireStorageModule} from 'angularfire2/storage';
     AngularFireAuthModule,
     AngularFireStorageModule
   ],
-  providers: [AuthService, AuthGuardService],
+  providers: [AuthService, AuthGuardService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
