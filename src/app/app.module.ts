@@ -15,18 +15,24 @@ import {environment} from '../environments/environment';
 import {AngularFirestoreModule} from 'angularfire2/firestore';
 import {AngularFireAuthModule} from 'angularfire2/auth';
 import {AngularFireStorageModule} from 'angularfire2/storage';
+import { SearchComponent } from './search/search.component';
+import { SearchModule } from './search/search.module';
+import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    RouterModule,
     AuthModule,
     ParticlesModule,
     TweetModule,
     CoreModule,
+    SearchModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,

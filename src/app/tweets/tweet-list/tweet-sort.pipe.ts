@@ -2,11 +2,11 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { Tweet } from '../tweet';
 
 @Pipe({
-    name: 'tweetFilter',
+    name: 'tweetSort',
     pure: true
 })
 
-export class TweetFilterPipe implements PipeTransform {
+export class TweetSortPipe implements PipeTransform {
     transform(tweets: Tweet[], criteria: string): any {
         if (tweets === undefined) {
             return tweets;

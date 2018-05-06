@@ -1,0 +1,13 @@
+<div class="row no-gutters">
+    <h1>Search results for <span style="color: #0084b4;">{{queryParam}}</span></h1>
+    <div class="col-md-12">
+        <p-tabMenu [model]="menuItems" [activeItem]="menuItems[0]"></p-tabMenu>
+        <ng-container *ngIf="activeItem.label == 'Tweets'">
+            <app-tweet-item 
+                *ngFor="let tweet of tweets" [tweet]="tweet">
+            </app-tweet-item>
+        </ng-container>
+        <p *ngIf="activeItem.label == 'People'">Nothing yet.</p>
+    </div>
+</div>
+

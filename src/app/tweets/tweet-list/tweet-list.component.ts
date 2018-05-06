@@ -15,7 +15,7 @@ export class TweetListComponent implements OnInit, OnDestroy {
     constructor(private tweetService: TweetService) { }
 
     ngOnInit() {
-        this.tweetsSubscription = this.tweetService.tweets.subscribe(
+        this.tweetsSubscription = this.tweetService.tweets$.subscribe(
             data => this.tweets = data
         );
     }

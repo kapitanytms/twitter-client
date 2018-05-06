@@ -10,11 +10,11 @@ import { User } from '@firebase/auth-types';
 export class TweetService {
 
     private tweetsCollection: AngularFirestoreCollection<Tweet>;
-    tweets: Observable<Tweet[]>;
+    tweets$: Observable<Tweet[]>;
 
     constructor(private afs: AngularFirestore, private afa: AngularFireAuth) {
         this.tweetsCollection = this.afs.collection<TweetItem>('tweets');
-        this.tweets = this.tweetsCollection.snapshotChanges()
+        this.tweets$ = this.tweetsCollection.snapshotChanges()
             .map(actions => {
                 return actions.map(action => {
                     const data = action.payload.doc.data() as Tweet;
@@ -45,4 +45,5 @@ export class TweetService {
     public deleteTweet(id: string) {
         this.tweetsCollection.doc(id).delete();
     }
+
 }
