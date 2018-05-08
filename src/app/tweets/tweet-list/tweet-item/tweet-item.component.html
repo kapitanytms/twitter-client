@@ -1,12 +1,12 @@
 <div class="card">
   <div class="card-header">
-    {{tweet.owner_id}}
+    {{tweet.user.username}}
     <a (click)="onLike()">
       <i *ngIf="!liked" class="fa fa-heart-o fa-lg tweet-like"></i>
       <i *ngIf="liked" class="fa fa-heart fa-lg tweet-like"></i>
     </a>
     <button (click)="onDelete()" class="btn btn-danger pull-right" 
-    *ngIf="tweet.owner_id === tweetService.currentUser.uid"> 
+    *ngIf="tweet.user.uid === currentUser.uid"> 
       Delete
     </button>
   </div>

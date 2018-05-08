@@ -7,6 +7,11 @@ import { TabMenuModule } from 'primeng/tabmenu';
 import { MenuItem } from 'primeng/api';
 import { TweetModule } from '../tweets/tweet.module';
 import { TweetItemComponent } from '../tweets/tweet-list/tweet-item/tweet-item.component';
+import { UserItemComponent } from './search-user/user-item/user-item.component';
+import { SearchTweetComponent } from './search-tweet/search-tweet.component';
+import { SearchUserComponent } from './search-user/search-user.component';
+import { SearchService } from './search.service';
+import { TweetFilterPipe } from './search-tweet/tweet-filter.pipe';
 
 @NgModule({
   imports: [
@@ -16,9 +21,12 @@ import { TweetItemComponent } from '../tweets/tweet-list/tweet-item/tweet-item.c
     TabMenuModule,
     TweetModule
   ],
-  declarations: [SearchComponent],
+  declarations: [SearchComponent, SearchTweetComponent, SearchUserComponent, UserItemComponent, TweetFilterPipe],
   exports: [
     SearchRoutingModule
+  ],
+  providers: [
+    SearchService
   ]
 })
 export class SearchModule { }
