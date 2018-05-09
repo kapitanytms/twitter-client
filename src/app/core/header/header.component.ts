@@ -19,6 +19,10 @@ export class HeaderComponent implements OnInit {
         this.authService.signOut();
     }
 
+    onHome() {
+        this.router.navigate(['/home']);
+    }
+
     onSearch() {
         this.router.navigate(['/search', this.queryParam]);
     }

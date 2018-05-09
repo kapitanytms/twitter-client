@@ -18,11 +18,15 @@ export class TweetItemComponent implements OnInit {
     constructor(private tweetService: TweetService,
                 private authService: AuthService) { }
 
+    // Checking if the current user likes the tweet
     ngOnInit() {
       this.currentUser = this.authService.currentUser;
       this.liked = this.tweet.likes.includes(this.currentUser.uid);
     }
 
+    // Like or unlike depending on the actual state
+    // by adding or removing from the likes list.
+    // Update the tweet.
     onLike() {
       if (!this.liked) {
         this.liked = true;
@@ -35,7 +39,11 @@ export class TweetItemComponent implements OnInit {
       this.tweetService.updateTweet(this.tweet);
     }
 
+    // Check if it's the current user's tweet.
+    // If yes, delete the tweet.
     onDelete() {
-      this.tweetService.deleteTweet(this.tweet.id);
+      if (this.tweet.user.uid === this.currentUser.uid) {
+        this.tweetService.deleteTweet(this.tweet.id);
+      }
     }
 }

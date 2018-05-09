@@ -30,18 +30,23 @@ export class SearchComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    // Subscribe to query parameter changes.
     this.routeParamSubscription = this.route.params.subscribe(
       (params: Params) => {
         this.queryParam = params['q'];
         this.searchService.addQuery(params['q']);
+
+        // Reset the TabMenu to clear search result counters.
         this.createTabs();
       }
     );
+    // Visualize the number of tweets found.
     this.tweetResultsCountSubscription = this.searchService.tweetResultsCount$.subscribe(
       (count) => {
         this.menuItems[0].label = 'Tweets' + ' (' + count + ')';
       }
     );
+    // Visualize the number of users found.
     this.userResultsCountSubscription = this.searchService.userResultsCount$.subscribe(
       (count) => {
         this.menuItems[1].label = 'People' + ' (' + count + ')';
@@ -55,6 +60,9 @@ export class SearchComponent implements OnInit, OnDestroy {
     this.userResultsCountSubscription.unsubscribe();
   }
 
+  // Initializing the PrimeNG TabMenu component.
+  // Also adding route actions for switching between
+  // search type components.
   createTabs() {
     this.menuItems = [{
         label: 'Tweets',

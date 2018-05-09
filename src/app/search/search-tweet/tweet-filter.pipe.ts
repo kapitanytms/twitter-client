@@ -6,7 +6,8 @@ import { SearchService } from '../search.service';
     name: 'filter',
     pure: false
 })
-
+// Filters the tweets by their text and username property
+// if it contains the argument.
 export class TweetFilterPipe implements PipeTransform {
 
     tweetsCount = 0;

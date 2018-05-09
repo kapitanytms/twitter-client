@@ -6,6 +6,7 @@ import {User} from './user';
 import { Observable } from 'rxjs/Observable';
 import { take } from 'rxjs/operators';
 import { Subscription } from 'rxjs/Subscription';
+import { SignInComponent } from './sign-in/sign-in.component';
 
 @Injectable()
 export class AuthService {
@@ -34,7 +35,7 @@ export class AuthService {
   }
 
   signInUser(email: string, password: string) {
-    this.afAuth.auth.signInWithEmailAndPassword(email, password)
+    return this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((res) => {
         this.router.navigate(['/home']);
         this.afAuth.auth.currentUser.getIdToken()
@@ -46,7 +47,8 @@ export class AuthService {
       })
       .catch(error => {
         console.log(error);
-      });
+        throw error;
+    });
   }
 
   signUpUser(user: User, password: string) {
@@ -54,7 +56,10 @@ export class AuthService {
       .then(res => {
         user.uid = res.uid;
         this.userCollection.doc(user.uid).set(user)
-          .then(() => console.log('success'));
+          .then(() => {
+            console.log('success');
+            this.router.navigate(['/sign_in']);
+          });
       })
       .catch(
         error => console.log(error)

@@ -6,12 +6,14 @@ import { AuthService } from '../auth/auth.service';
 import { AngularFireAuth, AUTH_PROVIDERS } from 'angularfire2/auth';
 import { User } from '../auth/user';
 
+// Purpose of this service is to make CRUD methods for 'tweets' database.
 @Injectable()
 export class TweetService {
 
     private tweetsCollection: AngularFirestoreCollection<Tweet>;
     tweets$: Observable<Tweet[]>;
 
+    // Fetching tweets from database.
     constructor(private afs: AngularFirestore, private authService: AuthService) {
         this.tweetsCollection = this.afs.collection<Tweet>('tweets');
         this.tweets$ = this.tweetsCollection.snapshotChanges()

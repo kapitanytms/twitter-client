@@ -16,6 +16,10 @@
             <em class="text-center">or</em>
             <a class="btn btn-primary btn-block" [routerLink]="['/sign_up']">Register</a>
         </div>
+        <div *ngIf="signInFailed" class="sign-in-failed card-footer alert alert-danger">
+            <strong>Could not login.</strong>
+            <p>Wrong username or password.</p>
+        </div>
     </div>
 </div>
 

@@ -13,6 +13,8 @@ import { SearchUserComponent } from './search-user/search-user.component';
 import { SearchService } from './search.service';
 import { TweetFilterPipe } from './search-tweet/tweet-filter.pipe';
 
+// Purpose of this module is to handle a single query parameter string
+// and visualize the tweets and users found in the database.
 @NgModule({
   imports: [
     CommonModule,

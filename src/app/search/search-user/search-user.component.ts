@@ -21,6 +21,9 @@ export class SearchUserComponent implements OnInit, OnDestroy {
               private authService: AuthService) { }
 
   ngOnInit() {
+    // Subscribe to query parameter changes.
+    // When does, filter the fetched users collection.
+    // Also report the number of users found.
     this.paramsSubscription = this.searchService.queryParam$
     .subscribe((param) => {
       this.users = this.authService.getUsers().filter((user) =>
@@ -28,8 +31,6 @@ export class SearchUserComponent implements OnInit, OnDestroy {
       );
       this.searchService.reportUserResults(this.users.length);
     });
-    // this.queryParam = param;
-    // this.users = this.authService.getUsers();
   }
 
   ngOnDestroy() {
