@@ -1,6 +1,9 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, OnDestroy} from '@angular/core';
 import {Tweet} from '../../tweet';
 import { TweetService } from '../../tweet.service';
+import { AuthService } from '../../../auth/auth.service';
+import { Subscription } from 'rxjs/Subscription';
+import { User } from '../../../auth/user';
 
 @Component({
   selector: 'app-tweet-item',
@@ -10,20 +13,23 @@ import { TweetService } from '../../tweet.service';
 export class TweetItemComponent implements OnInit {
 
     @Input() tweet: Tweet;
-    liked: boolean;
-    constructor(private tweetService: TweetService) { }
+    currentUser: User;
+    liked = false;
+    constructor(private tweetService: TweetService,
+                private authService: AuthService) { }
 
     ngOnInit() {
-      this.liked = this.tweet.likes.includes(this.tweetService.currentUser.uid);
+      this.currentUser = this.authService.currentUser;
+      this.liked = this.tweet.likes.includes(this.currentUser.uid);
     }
 
     onLike() {
       if (!this.liked) {
         this.liked = true;
-        this.tweet.likes.push(this.tweetService.currentUser.uid);
+        this.tweet.likes.push(this.currentUser.uid);
       } else {
         this.liked = false;
-        const index = this.tweet.likes.indexOf(this.tweetService.currentUser.uid);
+        const index = this.tweet.likes.indexOf(this.currentUser.uid);
         this.tweet.likes.splice(index, 1);
       }
       this.tweetService.updateTweet(this.tweet);

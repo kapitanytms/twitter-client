@@ -9,6 +9,7 @@ import {Router} from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
+    queryParam = '';
     userImg = `url(assets/images/test_user1.jpg)`;
     constructor(private authService: AuthService, private router: Router) { }
 
@@ -16,5 +17,9 @@ export class HeaderComponent implements OnInit {
 
     onSignOut() {
         this.authService.signOut();
+    }
+
+    onSearch() {
+        this.router.navigate(['/search', this.queryParam]);
     }
 }

@@ -5,7 +5,8 @@ import {AuthGuardService} from './auth/auth-guard.service';
 
 const appRoutes: Routes = [
     {path: 'welcome', loadChildren: './auth/auth.module#AuthModule'},
-    {path: 'home', loadChildren: './tweets/tweet.module#TweetModule', canActivate: [AuthGuardService]}
+    {path: 'home', loadChildren: './tweets/tweet.module#TweetModule', canActivate: [AuthGuardService]},
+    {path: 'search', loadChildren: './search/search.module#SearchModule', canActivate: [AuthGuardService] }
 ];
 
 @NgModule({
