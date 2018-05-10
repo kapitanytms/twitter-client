@@ -1,9 +1,8 @@
-<div class="card">
+<div [appJustTweeted]='tweet.date' class="card">
   <div class="card-header">
     <strong>{{tweet.user.username}}</strong> 
     <a (click)="onLike()">
-      <i *ngIf="!liked" class="fa fa-heart-o fa-lg tweet-like"></i>
-      <i *ngIf="liked" class="fa fa-heart fa-lg tweet-like"></i>
+      <i class="fa fa-lg tweet-like" [ngClass]="{'fa-heart-o':!liked, 'fa-heart':liked}"></i>
     </a>
     <small>likes: {{tweet.likes.length}}</small> 
     <button (click)="onDelete()" class="btn btn-danger pull-right" 
